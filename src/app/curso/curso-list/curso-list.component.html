@@ -1,0 +1,51 @@
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 rounded p-4 my-1">
+  <h2>Top Cursos</h2>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Plataforma</th>
+        <th scope="col">Lanzamiento</th>
+        <th scope="col">Duracion(h)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cursos">
+        <th scope="row">
+          <dd>{{ c.id }}</dd>
+        </th>
+        <td>
+          <dd> <a  (click)="onSelected(c)">{{ c.title }}</a></dd>
+        </td>
+        <td>
+          <dd>{{ c.platform }}</dd>
+        </td>
+        <td>
+          <dd>{{ c.launch_year }}</dd>
+        </td>
+        <td>
+          <dd>{{ c.duration_hours }}</dd>
+        </td>
+      </tr>
+     </tbody>
+    
+  </table>
+  <table class="table p-1 my-1">  
+      <tr><td><dd> {{message}}</dd></td></tr>
+           
+  </table>
+</div> 
+
+  <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 rounded p-4 my-5" *ngIf="selected">
+    <app-curso-detail [cursoDetail]="selectedCurso"></app-curso-detail>          
+  </div>
+
+
+
+</div>
+
+
+
+
